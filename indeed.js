@@ -6,11 +6,9 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const puppeteerExtra = require('puppeteer-extra');
 const dotenv = require('dotenv');
 dotenv.config();
-
 puppeteerExtra.use(StealthPlugin());
 
 const maxJobCards = 150;
-
 const autoScroll = async (page) => {
   await page.evaluate(async () => {
     await new Promise((resolve) => {
@@ -25,7 +23,7 @@ const autoScroll = async (page) => {
           clearInterval(timer);
           resolve();
         }
-      }, 100);
+      }, 300);
     });
   });
 };
@@ -35,14 +33,15 @@ const run = async (searchTerm) => {
   try {
     const auth = process.env.AUTH;
     const userAgents = [
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.2 Safari/605.1.15',
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15',
     ];
+    
 
-    browser = await puppeteerExtra.launch({
+    browser = await puppeteer.launch({
       headless: true,
       browserWSEndpoint: `ws://${auth}@brd.superproxy.io:9222`,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
     const page = await browser.newPage();
@@ -138,4 +137,6 @@ const run = async (searchTerm) => {
   }
 };
 
-run('Computer');
+const searchTerm = process.argv[2] || 'Computer';
+
+run(searchTerm);
