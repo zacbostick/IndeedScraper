@@ -1,0 +1,22 @@
+{
+  "name": "indeedscraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "indeed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node indeed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "json2csv": "^6.0.0-alpha.2",
+    "papaparse": "^5.4.1",
+    "puppeteer": "^13.1.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}

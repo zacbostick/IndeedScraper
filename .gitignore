@@ -1,0 +1,5 @@
+# .gitignore
+.env
+node_modules
+job_details.json
+job_details.csv
