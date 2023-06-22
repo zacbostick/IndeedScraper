@@ -2,7 +2,7 @@
 
 # Indeed Scraper
 
-Indeed Scraper is a powerful web scraping program designed to extract job details from Indeed.com. It utilizes Puppeteer for web scraping and Cheerio for HTML parsing.
+Indeed Scraper is a powerful web scraping program designed to extract job details from Indeed.com. It utilizes Puppeteer for web scraping and Cheerio for HTML parsing. You can try out a deployed version with a basic GUI here: https://scraper.zacbostick.com
 
 ## Prerequisites
 
